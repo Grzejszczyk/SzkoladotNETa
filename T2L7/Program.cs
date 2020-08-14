@@ -15,6 +15,7 @@ namespace T2L7
 
             while (loopIsOn)
             {
+                Console.WriteLine("T2 L7:");
                 Console.WriteLine("Wybierz zadanie od 1-13:");
                 Console.WriteLine("Jeżeli chcesz wyświetlić wsztkie wyniki wpisz: all.");
                 Console.WriteLine("Jeżeli chcesz wyjść z programu ćwiczeń wpisz: exit");
