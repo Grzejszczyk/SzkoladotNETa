@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace T2_Homework
+namespace RTManager
 {
     public class Request
     {

@@ -5,7 +5,7 @@ using System.Net.NetworkInformation;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
-namespace T2_Homework
+namespace RTManager
 {
     static class Program
     {

@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T2L7", "T2L7\T2L7.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T2L8", "T2L8\T2L8.csproj", "{6F5544AD-D9CD-428F-892C-C145FD8D10D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T2_Homework", "T2_Homework\T2_Homework.csproj", "{FE24C882-7F36-4183-B3DE-0AA2D6F5D1AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RTManager", "T2_Homework\RTManager.csproj", "{FE24C882-7F36-4183-B3DE-0AA2D6F5D1AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{59605EB3-D070-4CDC-9ACB-3631A859642F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2F8124C-C0F9-4487-B973-7A5B72A92583} = {59605EB3-D070-4CDC-9ACB-3631A859642F}
+		{6F5544AD-D9CD-428F-892C-C145FD8D10D0} = {59605EB3-D070-4CDC-9ACB-3631A859642F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2C064F9-042C-421C-B393-E5B872EC5233}
