@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RTManager.App.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -7,8 +8,37 @@ using System.Threading;
 
 namespace RTManager
 {
-    static class Program
+    public class Program
     {
+        static void Main(string[] args)
+        {
+            MenuActionService menuActionService = new MenuActionService();
+            RequestService requestService = new RequestService();
+
+            Console.WriteLine("Welcome to Request-Task Program.");
+
+            var mainMenu = menuActionService.GetMenuActionByMenuName("UserMainMenu");
+
+            for (int i = 0; i < mainMenu.Count; i++)
+            {
+                Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
+            }
+
+            SeedData sd = new SeedData(requestService);
+            sd.SeedExampleDataRS();
+
+            Console.WriteLine("See blow all requestes:");
+            Console.WriteLine();
+            foreach (var item in requestService.Items)
+            {
+                Console.WriteLine(item.RequestDescription);
+            }
+
+        }
+
+
+        /*
+        
         static List<Request> requests = new List<Request>();
         static List<Task> tasks = new List<Task>();
         static List<User> users = new List<User>();
@@ -195,6 +225,6 @@ namespace RTManager
             tasks.Where(t => t.TaskId.ToString() == taskID).FirstOrDefault().IsDone = true;
             Console.WriteLine("Thank you. Signed as done.");
             Menu();
-        }
+        } */
     }
 }
