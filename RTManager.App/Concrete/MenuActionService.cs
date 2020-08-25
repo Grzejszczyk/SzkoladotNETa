@@ -3,6 +3,7 @@ using RTManager.App.Common;
 using RTManager.Domian.Entity;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Text;
 
 namespace RTManager.App.Concrete
@@ -27,10 +28,12 @@ namespace RTManager.App.Concrete
         }
         private void Initialize()
         {
-            AddItem(new MenuAction(1, "User Requests List", "UserMainMenu"));
-            AddItem(new MenuAction(2, "User Tasks List", "UserMainMenu"));
-            AddItem(new MenuAction(3, "Assign Request to user as Task", "UserMainMenu"));
-            AddItem(new MenuAction(4, "Mark Task as done", "UserMainMenu"));
+            AddItem(new MenuAction(1, "Requests List", "UserMenu"));
+            AddItem(new MenuAction(2, "Tasks List", "UserMenu"));
+            AddItem(new MenuAction(3, "Assign Request to user as Task", "UserMenu"));
+            AddItem(new MenuAction(4, "Sign Task as done", "UserMenu"));
+            AddItem(new MenuAction(5, "Create new request", "UserMenu"));
+            AddItem(new MenuAction(6, "Remove request", "UserMenu"));
         }
     }
 }

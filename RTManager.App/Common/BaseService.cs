@@ -37,9 +37,10 @@ namespace RTManager.App.Common
             return Items;
         }
 
-        public T GetItem(T item)
+        public T GetItemById(int itemId)
         {
-            throw new NotImplementedException();
+            var entity = Items.FirstOrDefault(p => p.Id == itemId);
+            return entity;
         }
 
         public void RemoveItem(T item)

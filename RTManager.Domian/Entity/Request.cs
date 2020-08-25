@@ -11,9 +11,10 @@ namespace RTManager.Domian.Entity
         public string RequestDescription { get; set; }
         public DateTime RequestedDeadLine { get; set; }
         public bool IsAssignedAsTask { get; set; }
-        public Request(int id, string requestDescription, DateTime deadLine)
+        public Request(int id, int requestToUser, string requestDescription, DateTime deadLine)
         {
             Id = id;
+            RequestToUser = requestToUser;
             RequestDescription = requestDescription;
             RequestedDeadLine = deadLine;
         }

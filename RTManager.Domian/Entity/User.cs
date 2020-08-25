@@ -8,5 +8,10 @@ namespace RTManager.Domian.Entity
     public class User : BaseEntity
     {
         public string UserName { get; set; }
+        public User(int id, string userName)
+        {
+            Id = id;
+            UserName = userName;
+        }
     }
 }
