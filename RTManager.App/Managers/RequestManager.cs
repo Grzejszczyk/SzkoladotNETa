@@ -4,8 +4,10 @@ using RTManager.Domian.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace RTManager.App.Managers
 {
@@ -74,6 +76,7 @@ namespace RTManager.App.Managers
 
             Request request = new Request(requestCount + 1, userId, requestDesctription, deadline);
             _requestService.AddItem(request);
+            SaveRequestsToXML();
             return request.Id;
         }
         public void RemoveRequestById()
@@ -111,6 +114,16 @@ namespace RTManager.App.Managers
             else
                 Console.WriteLine("Sorry list of request is empty.");
             return null;
+        }
+        public void SaveRequestsToXML()
+        {
+            XmlRootAttribute root = new XmlRootAttribute();
+            root.ElementName = "Requests";
+            root.IsNullable = true;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Request>), root);
+
+            using StreamWriter sw = new StreamWriter("requests.xml");
+            xmlSerializer.Serialize(sw, _requestService.Items);
         }
     }
 }

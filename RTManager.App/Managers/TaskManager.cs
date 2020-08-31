@@ -2,7 +2,9 @@
 using RTManager.Domian.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace RTManager.App.Managers
 {
@@ -73,6 +75,7 @@ namespace RTManager.App.Managers
             tasksCount = _taskSevice.Items.Count;
             Task task = new Task(tasksCount + 1, requestId, taskDeadLine, false);
             _taskSevice.Items.Add(task);
+            SaveTasksToXML();
 
             Console.WriteLine("Task created: ");
             Console.WriteLine("Id is: " + task.Id);
@@ -86,10 +89,21 @@ namespace RTManager.App.Managers
             if (_taskSevice.Items.Any(t=>t.Id == taskId))
             {
                 _taskSevice.ChangeTaskStatusAsDone(taskId);
+                SaveTasksToXML();
             } else
             {
                 Console.WriteLine("Sorry, wrong task id.");
             }
+        }
+        public void SaveTasksToXML()
+        {
+            XmlRootAttribute root = new XmlRootAttribute();
+            root.ElementName = "Tasks";
+            root.IsNullable = true;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Request>), root);
+
+            using StreamWriter sw = new StreamWriter("tasks.xml");
+            xmlSerializer.Serialize(sw, _requestService.Items);
         }
     }
 }
